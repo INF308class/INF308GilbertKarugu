@@ -8,6 +8,6 @@ Card_Suits = [ "Hearts", "Spades", "Clubs","Diamonds"]
 
 for Rank in Card_Ranks:
     for Suit in Card_Suits:
-        Card_Deck.append(Rank + " " + Suit)
+        Card_Deck.append(Rank + " of " + Suit)
         Card = random.choice(Card_Deck)
         print (Card)
