@@ -3,17 +3,7 @@ def main ():
 
 
 
-    #Card_Deck = []
-    #Card_Ranks = ["A", "2", "4", "5", "6", "7", "8", "9", "10" ,"J" ,"Q", "K"]
-    #Card_Suits = [ "Hearts", "Spades", "Clubs","Diamonds"]
 
-    #for Rank in Card_Ranks:
-    #    for Suit in Card_Suits:
-    #        Card_Deck.append(Rank + " of " + Suit)
-     #       Card = random.choice(Card_Deck)
-    #        print (Card)"""
-
-    
     Card_Deck  = 52
     playerOne = 0
     playerTwo = 0
@@ -31,7 +21,7 @@ def main ():
         for suitType in suit:
             totalList.append(str(num) + ' ' + suitType)
    
-    print("Welcome to war. Press play button to deal a hand.")
+    print("Press play button to deal a hand.")
        
     while (Card_Deck  > 0):
            
@@ -43,7 +33,7 @@ def main ():
         playerOne = theOutput[1]
         playerTwo = theOutput[2]
         print()
-        #time.sleep(2)
+        
         scoreTup = score(playerOne, playerTwo, pOneScore, pTwoScore)
         pOneScore = scoreTup[0]
         pTwoScore = scoreTup[1]
@@ -55,7 +45,7 @@ def main ():
         print("Player one's score: ", pOneScore)
         print("Player two's score: ", pTwoScore)
    
-    print("The game of war has ended!")
+    print("The game has ended!")
     if pOneScore > pTwoScore:
         winner = 'Player One Wins'
     elif pOneScore < pTwoScore:
@@ -74,7 +64,7 @@ def dealCard(totalList, playerOne, playerTwo):
     print("Player one: ",playerOne, playerOneSuit)
     totalList.remove(playerOne)
  
-    #time.sleep(2)
+    
     playerTwo = random.choice(totalList)
        
     print("Player two: ",playerTwo, playerTwoSuit)
@@ -113,17 +103,17 @@ def score(playerOne, playerTwo, pOneScore, pTwoScore):
         elif playerTwo[0] == "Jack":
             pTwo = 4
    
-    #debug
+   
     if pOne > pTwo:
-        print("Player 2 wins the hand!")
+        print("Player 2 wins the hand")
         pTwoScore += 1
    
     elif pOne < pTwo:
-        print("Player 1 wins the hand!")
+        print("Player 1 wins the hand")
         pOneScore += 1
    
     elif pOne == pTwo:
-        print("It's a tie!")
+        print("It's a tie")
    
     return pOneScore, pTwoScore
 main ()  
