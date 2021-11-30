@@ -22,7 +22,7 @@ def action():
             #method = str(input('\nHow is the meal prepared  \n'))
             Flashcards[Question] = [Question,correct]
             print(Flashcards[Question])
-         elif answer == "3":   
+        elif answer == "3":   
              print(Flashcards)
         elif answer == "4":
             print("Incorrect answer")
