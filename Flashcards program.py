@@ -13,4 +13,12 @@ def action():
                       
     
                        
-       
+         
+        if answer == "1" :
+            print(Flashcards.values())
+        elif answer == "2":           
+            Question = str(input("\nWhat is the question ?  \n"))
+            correct = str(input("\nWhat is the right answer  \n"))
+            #method = str(input('\nHow is the meal prepared  \n'))
+            Flashcards[Question] = [Question,correct]
+            print(Flashcards[Question])
