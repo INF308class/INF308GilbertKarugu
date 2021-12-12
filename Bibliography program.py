@@ -14,3 +14,23 @@ class Book:
            new_author['first'] = input(f"author {i} - Enter first name: ")
            new_author['last'] = input(f"author {i} - Enter last name: ")
            self.authors.append(new_author)
+    # prints the details of the object
+    def __str__(self):
+        cite_str = ""
+        for i, author_details in enumerate(self.authors):
+            if i == self.author_num - 1 and self.author_num > 1:
+                cite_str += " & "
+            cite_str += f"{author_details['last']}, {author_details['first'][0]}."
+        cite_str += f", ({self.year}). {self.title}. {self.publisher}."
+        return cite_str
+
+    # this method writes the details of the object to a file
+    def write_to_file(self, filename):
+        try:
+            with open(filename, 'a') as f:
+                f.write(self.__str__())
+                f.write("\n")
+        except:
+            print(" Error while writing to file!")
+        else:
+            print(" Successfully written to file!")
