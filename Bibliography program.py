@@ -71,3 +71,36 @@ def create_article_entry():
     # save to a file
     filename = input("Enter the name of file to write to: ")
     new_article.write_to_file(filename)
+def create_book_entry():
+    # get user inputs
+    author_count = int(input("Enter number of authors: "))
+    pub_year = int(input("Enter year of publication: "))
+    work_title = input("Enter title of work: ")
+    pub_name = input("Enter the name of the publisher: ")
+
+    # create an instance of the Book class
+    new_book = Book(author_count, pub_year, work_title, pub_name)
+    # record author names
+    new_book.input_authors()
+    # print the citation entry
+    print(new_book)
+    # save to a file
+    filename = input("Enter the name of file to write to: ")
+    new_book.write_to_file(filename)
+    
+def main():
+    # loop until user exits
+    while True:
+        choice = input("Enter a choice:\n1. Cite a book\n2. Cite an article\n3. Quit\n> ")
+        if choice == '1':
+            create_book_entry()
+        elif choice == '2':
+            create_article_entry()
+        elif choice == '3':
+            print("Quitting")
+            break
+        else:
+            print("Invalid input! Please try again..")
+
+if __name__ == "__main__":
+    main()
