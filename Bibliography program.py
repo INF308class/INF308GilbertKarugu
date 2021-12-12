@@ -52,3 +52,22 @@ class Article(Book):
             cite_str += f"{author_details['last']}, {author_details['first'][0]}."
         cite_str += f", ({self.year}). {self.title}. {self.publisher}, {self.vol}({self.issue}), {self.pages}. {self.url}"
         return cite_str
+def create_article_entry():
+    author_count = int(input("Enter number of authors: "))
+    pub_year = int(input("Enter year of article publication: "))
+    article_title = input("Enter title of work: ")
+    journal_name = input("Enter the name of the journal: ")
+    volume_no = int(input("Enter volume number: "))
+    issue_no = int(input("Enter issue number: "))
+    page_range = input("Enter page range: ")
+    url = input("Enter URL: ")
+
+    # create an instance of the Article class
+    new_article = Article(author_count, pub_year, article_title, journal_name, volume_no, issue_no, page_range, url)                       
+    # record author names
+    new_article.input_authors()
+    # print the citation entry
+    print(new_article)
+    # save to a file
+    filename = input("Enter the name of file to write to: ")
+    new_article.write_to_file(filename)
