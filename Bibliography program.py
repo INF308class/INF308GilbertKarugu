@@ -34,3 +34,21 @@ class Book:
             print(" Error while writing to file!")
         else:
             print(" Successfully written to file!")
+class Article(Book):
+    # add some additional attributes and call the original constructor
+    def __init__(self, author_num, year, title, journal, vol, issue, pages, url):
+        super().__init__(author_num, year, title, journal)
+        self.vol = vol
+        self.issue = issue
+        self.pages = pages
+        self.url = url
+
+    # print details of the article using __str__ method
+    def __str__(self):
+        cite_str = ""
+        for i, author_details in enumerate(self.authors):
+            if i == self.author_num - 1 and self.author_num > 1:
+                cite_str += " & "
+            cite_str += f"{author_details['last']}, {author_details['first'][0]}."
+        cite_str += f", ({self.year}). {self.title}. {self.publisher}, {self.vol}({self.issue}), {self.pages}. {self.url}"
+        return cite_str
