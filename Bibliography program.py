@@ -1,4 +1,5 @@
 class Book:
+# This program will cite a book in APA Format
     # constructor for the book class
     def __init__(self, author_num, year, title, publisher):
        self.author_num = author_num
@@ -7,7 +8,7 @@ class Book:
        self.publisher = publisher
        self.authors = []
 
-    # method to get author names
+    # method to get author/s names
     def input_authors(self):
         for i in range(self.author_num):
            new_author = dict()
@@ -24,7 +25,7 @@ class Book:
         cite_str += f", ({self.year}). {self.title}. {self.publisher}."
         return cite_str
 
-    # this method writes the details of the object to a file
+    #  writes details of the object to a file
     def write_to_file(self, filename):
         try:
             with open(filename, 'a') as f:
@@ -35,7 +36,7 @@ class Book:
         else:
             print(" Successfully written to file!")
 class Article(Book):
-    # add some additional attributes and call the original constructor
+    # adds attributes and calls the original constructor
     def __init__(self, author_num, year, title, journal, vol, issue, pages, url):
         super().__init__(author_num, year, title, journal)
         self.vol = vol
@@ -43,7 +44,7 @@ class Article(Book):
         self.pages = pages
         self.url = url
 
-    # print details of the article using __str__ method
+    # print article detaila as a string
     def __str__(self):
         cite_str = ""
         for i, author_details in enumerate(self.authors):
@@ -62,9 +63,9 @@ def create_article_entry():
     page_range = input("Enter page range: ")
     url = input("Enter URL: ")
 
-    # create an instance of the Article class
+    # creates an Article class instance
     new_article = Article(author_count, pub_year, article_title, journal_name, volume_no, issue_no, page_range, url)                       
-    # record author names
+    # records author/s names
     new_article.input_authors()
     # print the citation entry
     print(new_article)
@@ -78,18 +79,18 @@ def create_book_entry():
     work_title = input("Enter title of work: ")
     pub_name = input("Enter the name of the publisher: ")
 
-    # create an instance of the Book class
+    # create Book class instance
     new_book = Book(author_count, pub_year, work_title, pub_name)
-    # record author names
+    # record author/s names
     new_book.input_authors()
-    # print the citation entry
+    # print citation entry
     print(new_book)
     # save to a file
     filename = input("Enter the name of file to write to: ")
     new_book.write_to_file(filename)
     
 def main():
-    # loop until user exits
+    # loop repeats until user quits by selecting choice number 3
     while True:
         choice = input("Enter a choice:\n1. Cite a book\n2. Cite an article\n3. Quit\n> ")
         if choice == '1':
