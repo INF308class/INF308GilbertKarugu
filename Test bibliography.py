@@ -8,6 +8,7 @@ class Book:
        self.title = title
        self.publisher = publisher
        self.authors = []
+
     # method to get author/s names
     def input_authors(self):
         for i in range(self.author_name):
