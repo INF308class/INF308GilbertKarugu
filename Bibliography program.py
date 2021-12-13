@@ -44,7 +44,7 @@ class Article(Book):
         self.pages = pages
         self.url = url
 
-    # print article detaila as a string
+    # print article details as a string
     def __str__(self):
         cite_str = ""
         for i, author_details in enumerate(self.authors):
@@ -101,7 +101,7 @@ def main():
             print("Quitting")
             break
         else:
-            print("Invalid input! Please try again..")
+            print("Invalid input! Please try again.")
 
 if __name__ == "__main__":
     main()
